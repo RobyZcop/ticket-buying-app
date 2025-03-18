@@ -5,6 +5,11 @@
 ## 📌 Project Overview
 This repository is designed for the "Cineworld Ticket Buying App," a university project that enables users to purchase movie tickets and select seats through an interactive interface. The project aims to model a real-world database that supports a cinema ticketing system.
 
+## 🏗️ Database Structure
+Here is the database structure used in this project:
+![Database Structure](images/database_structure.png)
+
+
 ## 🛠 Technologies Used
 This project utilizes the following technologies:
 
