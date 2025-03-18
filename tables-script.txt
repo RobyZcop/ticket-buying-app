@@ -1,0 +1,188 @@
+-------- DDL / Creating the table -------------
+
+
+
+create table Movie
+(
+	movieId int,
+	title varchar(25),
+	Duration int,
+	Genre varchar(20),
+	AgeRestriction char(2),
+	Screening char (2)
+
+	constraint pk_movieId
+		primary key (movieId)
+);
+
+create table Customer 
+(
+	customerId int,
+	firstName varchar(50),
+	lastName varchar(50),
+	email varchar(64),
+	password varchar(64)
+
+	
+	constraint pk_usedId
+		primary key (customerId)
+
+);
+create table City 
+(
+	cityId int,
+	name varchar(64),
+	state varchar(64),
+	zipCode varchar(64)
+
+	constraint pk_city
+		primary key (cityId)
+
+);
+
+create table Cinema 
+(
+	cinemaId int,
+	Name varchar(64),
+	total_cinema_auditorium int,
+	cityId int 
+
+	constraint pk_cinema
+		primary key (cinemaId),
+	
+	constraint fk_cinema_city
+		foreign key(cityId)
+		references City (cityId)
+
+);
+create table Auditorium
+(
+	cinemaAuditoriumId int,
+	Name varchar(64),
+	 totalSeat int,
+	 cinemaId int
+
+	 constraint pk_cinemaAuditorium
+		primary key (cinemaAuditoriumId),
+		
+	constraint fk_Auditorium_cinemaId
+		foreign key (cinemaId)
+		references Cinema (cinemaId)
+);
+create table Auditorium_Seat
+(
+	auditoriumSeatID int,
+	seatNumber int,
+	cinemaAuditoriumId int
+
+	constraint pk_Auditorium_Seat
+		primary key (auditoriumSeatID),
+
+	constraint fk_Auditorium_Seat_Auditorium
+		foreign key (cinemaAuditoriumId)
+		references Auditorium (cinemaAuditoriumId)
+
+);
+create table Show_Schedule 
+(
+	showId int,
+	date date,
+	startTime decimal(4,2),
+	endTime decimal(4,2),
+	movieId int,
+	cinemaAuditoriumId int
+
+	constraint pk_Show_scheduleID
+		primary key (showId)
+	
+	constraint fk_Show_scheduleID_movieId
+		foreign key (movieId)
+		references Movie (movieId)
+
+
+);
+
+alter table Show_schedule 
+add 
+constraint fk_Show_scheduleID_auditorium 
+	foreign key (cinemaAuditoriumId)
+	references Auditorium (cinemaAuditoriumId);
+
+
+create table Ticket
+(
+	ticketId int,
+	numberOfSeats int,
+	Date date,
+	customerId int,
+	showId int
+
+	constraint pk_ticket
+		primary key (ticketId),
+
+	constraint fk_ticket_customer
+		foreign key (customerId)
+		references Customer (customerId),
+
+	
+	constraint fk_ticket_showSchedule
+		foreign key (showId)
+		references Show_schedule (showId)
+
+);
+
+
+create table Show_Schedule_Seat
+(
+	showSeatId int,
+	custType varchar(20),
+	price decimal(6,2),
+	auditoriumSeatID int,
+	showId int,
+	ticketId int
+
+	constraint pk_ShowSchedule_Seat
+		primary key (showSeatId),
+
+	constraint pk_ShowSchedule_Seat_auditoriumSeat
+		foreign key (auditoriumSeatID)
+		references Auditorium_Seat (auditoriumSeatID),
+
+	constraint pk_ShowSchedule_Seat_show
+		foreign key (showId)
+		references Show_schedule (showId),
+
+constraint pk_ShowSchedule_Seat_ticket
+		foreign key (ticketId)
+		references Ticket (ticketId)
+
+);
+
+create table Payment
+(
+	paymentId int,
+	total decimal (6,2),
+	ticketId int
+
+	constraint pk_payment
+		primary key (paymentId),
+
+
+);
+
+alter table Payment
+add constraint fk_payment_ticket
+	foreign key (ticketId)
+	references Ticket (ticketId);
+
+
+alter table Payment
+add constraint unique_ticket unique (ticketId) 
+
+alter table Customer
+add constraint unique_email unique (email)
+
+alter table Movie
+Add EndDate Date
+
+--- Did not put trailer because I do not know the data type, he has to be insert into movie

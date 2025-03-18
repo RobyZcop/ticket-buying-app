@@ -1,0 +1,38 @@
+----- Query --------------
+
+--	For each auditorium, how many tickets were sold today in City  Bristol .
+
+select a.Name, count (*) sellingTicket
+from Ticket t
+inner join Show_schedule s  on t.showId = s.showId
+inner join Auditorium a on s.cinemaAuditoriumId = a.cinemaAuditoriumId
+inner join Cinema c on a.cinemaAuditoriumId = c.cinemaId
+inner join City ci on c.cityId = ci.cityId
+where ci.name = 'Bristol'
+and t.Date = '05-04-2022'
+group by (a.Name)
+
+
+ -- All tickets bought by customer sarai32@gmail.com (all info of tickets)
+
+ select distinct email, numberOfSeats, Ticket.Date, Ticket.customerId, Ticket.showId, total, custType,
+ startTime, endTime, Auditorium. Name as AuditoriumName, City.name as City, Auditorium_Seat.seatNumber
+ from Ticket
+ inner join Customer on Ticket.customerId = Customer.customerId
+  inner join Payment on Ticket.ticketId = Payment.paymentId
+  inner join Show_Schedule_Seat on Ticket.ticketId = Show_Schedule_Seat.ticketId
+  inner join Auditorium_Seat on Show_Schedule_Seat.auditoriumSeatID = Auditorium_Seat.auditoriumSeatID
+  inner join Show_Schedule on Ticket.showId = Show_Schedule.showId
+  inner join Auditorium on Show_Schedule.cinemaAuditoriumId = Auditorium.cinemaAuditoriumId
+  inner join Cinema  on Auditorium.cinemaId = Cinema.cinemaId
+  inner join City on Cinema.cityId = City.cityId
+ where email = 'sarai32@gmail.com'
+ 
+
+ ---	An overview of the total turnover per movie, per City, and how many days it showed. (or, the starting date and ending date)
+
+ select title, Ticket.Date, total
+ from Payment
+ inner join Ticket on Payment.ticketId = Ticket.ticketId
+ inner join Show_Schedule on Ticket.showId = Show_Schedule.showId
+ inner join Movie on Show_Schedule.movieId = Movie.movieId
