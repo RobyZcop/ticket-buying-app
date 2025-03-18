@@ -18,7 +18,3 @@ This project utilizes the following technologies:
 
 ## 📝 Reflection
 This project was a practical exercise in designing and implementing a relational database with realistic data and queries. Challenges included designing a schema that supports complex queries and ensures data integrity through proper use of keys and constraints.
-
-## 🚀 Future Improvements
-Enhance the data model to include new features such as online payments and membership discounts.
-Optimize queries for better performance on larger datasets.
