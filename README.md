@@ -7,7 +7,7 @@ This repository is designed for the "Cineworld Ticket Buying App," a university 
 
 ## 🏗️ Database Structure
 Here is the database structure used in this project:
-![Database Structure](images/database_structure.png)
+![Database Structure](database-structure.png)
 
 
 ## 🛠 Technologies Used
