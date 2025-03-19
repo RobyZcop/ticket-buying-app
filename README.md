@@ -28,9 +28,7 @@ Below is the file structure for this project:
 ├─ 📄 tables-script.txt          # SQL script for creating tables
 ├─ 📄 insert-data-script.txt     # SQL script for inserting initial data
 ├─ 📄 queries-for-testing-database.txt # SQL script for testing and example queries
-│
-└─ 📁 images
-   └─ 📄 database-structure.png  # Image showing the database structure
+├─ 📄 database-structure.png  # Image showing the database structure
 ```
 
 ## 📝 Reflection
