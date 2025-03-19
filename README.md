@@ -16,5 +16,17 @@ This project utilizes the following technologies:
 - SQL – Database creation and management
 - Microsoft SQL Server Management Studio – Database environment
 
+```plaintext
+📂 cineworld-ticket-app
+│
+├─ 📄 README.md                  # Project documentation
+│
+├─ 📄 tables-script.txt          # SQL script for creating tables
+├─ 📄 insert-data-script.txt     # SQL script for inserting initial data
+├─ 📄 queries-for-testing-database.txt # SQL script for testing and example queries
+│
+└─ 📁 images
+   └─ 📄 database-structure.png  # Image showing the database structure
+
 ## 📝 Reflection
 This project was a practical exercise in designing and implementing a relational database with realistic data and queries. Challenges included designing a schema that supports complex queries and ensures data integrity through proper use of keys and constraints.
