@@ -5,7 +5,7 @@
 ## 📌 Project Overview
 This repository is designed for the "Cineworld Ticket Buying App," a university project that enables users to purchase movie tickets and select seats through an interactive interface. The project aims to model a real-world database that supports a cinema ticketing system.
 
-## 🏗️ Database Structure
+## 🧱 Database Structure
 Here is the database structure used in this project:
 ![Database Structure](database-structure.png)
 
@@ -15,6 +15,10 @@ This project utilizes the following technologies:
 
 - SQL – Database creation and management
 - Microsoft SQL Server Management Studio – Database environment
+
+## 🏗️ Project Structure 
+
+Below is the file structure for this project:
 
 ```plaintext
 📂 cineworld-ticket-app
@@ -27,6 +31,7 @@ This project utilizes the following technologies:
 │
 └─ 📁 images
    └─ 📄 database-structure.png  # Image showing the database structure
+```
 
 ## 📝 Reflection
 This project was a practical exercise in designing and implementing a relational database with realistic data and queries. Challenges included designing a schema that supports complex queries and ensures data integrity through proper use of keys and constraints.
